@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React, { useState } from 'react';
 import { data } from '../utilities/allPokemon'
+import { SparklesIcon } from '@heroicons/react/solid'
 
 export default function Home({ pokemonData }) {
   const [pokemon, setPokemon] = useState(pokemonData);
@@ -15,7 +16,7 @@ export default function Home({ pokemonData }) {
   return (
     <div>
       <Head>
-        <title>NextJS Pokédex</title>
+        <title>Shiny Pokédex</title>
       </Head>
 
       <main className='bg-gradient-to-t from-yellow-300 to-yellow-200 via-yellow-100 min-h-screen px-4 pt-12 pb-4'>
@@ -38,7 +39,7 @@ export default function Home({ pokemonData }) {
               const pokemon_id = Pokemon.url.split("/")[6];
               const padded_id = pokemon_id.padStart(1, "0");
               return(
-                <div className='bg-gradient-to-t from-yellow-400 to-yellow-200 p-3 m-1 sm:m-2 border-gray-300 border-2 hover:border-indigo-400 rounded-xl text-center cursor-pointer shadow-sm hover:shadow-lg hover:opacity-90 transition-all duration-200'>
+                <div className='w-24 md:w-28 lg:w-32 xl:w-32 bg-gradient-to-t from-yellow-400 to-yellow-200 p-3 m-1 sm:m-2 border-gray-300 border-2 hover:border-indigo-400 rounded-xl text-center cursor-pointer shadow-sm hover:shadow-lg hover:opacity-90 transition-all duration-200'>
                   <h3 className='capitalize text-gray-500 text-center w-full lg:text-xs text-sm'> #{pokemon_id}</h3>
                 <div>
                   <img
@@ -49,8 +50,11 @@ export default function Home({ pokemonData }) {
                     onClick={() => alert(`${pokemon_id}`)}
                     alt={`${pokemon_id}`}
                   />
+                  <div>
+                  <SparklesIcon width={24} height={24} className='fill-white ouline inline-block'/>
+                  </div>
                 </div>
-                <h3 className='capitalise text-gray-600 truncate text-center w-full text-xs'>{Pokemon.name}</h3>
+                <h3 className='capitalize text-gray-600 truncate text-center w-full text-xs'>{Pokemon.name}</h3>
                 </div>
             );
           })
